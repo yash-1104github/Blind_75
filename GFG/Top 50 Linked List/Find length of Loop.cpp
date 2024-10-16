@@ -6,29 +6,30 @@ class Solution {
         if(head == NULL){
             return 0;
         }
-        
-    //  Node* slow = head;
-    //  Node* fast = head->next;
+
+    //  approch 1 
+     Node* slow = head;
+     Node* fast = head->next;
       
-    //   int cnt = 1;
+      int cnt = 1;
       
-    //  while(fast != nullptr && fast->next != NULL){
+     while(fast != nullptr && fast->next != NULL){
           
-    //      if(slow->data == fast->data && ){
-    //          Node* curr = slow->next;
+         if(slow == fast){
+             Node* curr = slow->next;
             
-    //     while(curr -> data != slow->data){
-    //           cnt++;
-    //           curr = curr->next;
-    //       }            
-    //         return cnt;
-    //     }
+        while(curr != slow){
+              cnt++;
+              curr = curr->next;
+          }            
+            return cnt;
+        }
         
-    //      slow = slow->next;
-    //      fast = fast->next->next;
-    //  }
+         slow = slow->next;
+         fast = fast->next->next;
+     }
     
-    
+ //approch - 2
     unordered_map<Node*, int>mp;
     
       int cnt = 1;
